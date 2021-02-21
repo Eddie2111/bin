@@ -99,23 +99,17 @@ class db:
         #instance incomplete[95% done] #shows email,id,pass
         #main retrieve section file..!#
         
-        with open ('task2.txt','r') as textfile:
+        with open ('task2.txt','r') as textfile:  #replace the location by the main db.txt file to complete 100%
             gstring=textfile.read() #read complete
-        
-        #print(gstring) ##output: `1`
-
         hexa=gstring.splitlines()
-        #print(hexa) #spliting complete #output `2`
+     
 
         a=cname_main  ###main input here...!!
         for i in range(0,len(hexa)):
             if a in hexa[i]:
                 gotit=hexa[i]
             else:
-                None  #Partition 'x' complete
-
-        #print(gotit) #output: `3`
-        # Partition 'y
+                None 
         b_x=[]
         for i in range(len(gotit)):
             if gotit[i]=="'":
@@ -175,9 +169,11 @@ class db:
             return 'welcome'
         else:
             return 'wrong password'
-
-
 a=db()
+def storing_style(x,y,z):  ##not implemented ##hardcode section is not changed
+    return '\n {} \n'.format(a.store({x:(str(y),str(a.encrypt(z)))}))
+
+
 print('Welcome to HexWall Password Storing System.')
 while True:
 
