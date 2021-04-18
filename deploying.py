@@ -4,9 +4,6 @@ class db:
         #100% complete..!
     def store(self,name):  #test it #stores password  #ok..!
         #storing format must be like this:
-            #comapny: cname
-            #id: Eddie2111
-            #Password: abcd1234
             #x={'cname':('Eddie2111','[a,1],[b,2],[c,3],[d,4]')}
         self.name=name
         with open ("db.txt", "a") as textico:
@@ -117,7 +114,7 @@ class db:
             b+=gotit[i]
         for i in range(b_x[4]+1,b_x[5]):
             c+=gotit[i]
-            
+        print(24*'=',"\n")
         print( 'Company: {}\nID: {}'.format(a,b))
         temp1,temp2=[],[]
         for i in range(len(c)):#
@@ -183,9 +180,9 @@ while True:
                 print('Please enter master password to continue: ')
                 x=a.selfsec(str(input()))
                 if 'elco' in x:
-                    print('Retrieval System Initialized')
+                    print(24*'=',"\n",'Retrieval System Initialized',24*'=',"\n")
                     x=str(input('company name:'))
-                    print(a.s_retrieve(x))
+                    print(a.s_retrieve(x),"\n",24*'=',"\n")
                     break
                 if 'ron' in x:
                     print('Wrong password..!\n{} attepmts left'.format(2-i))
