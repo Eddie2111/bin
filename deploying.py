@@ -1,19 +1,15 @@
 class db:
     def __init__(self,name='default'):
         self.name=name
-        #password is stored in a encrypted way
-        #decryption works after getting the lists.
-        #work on retrieving
-        #-get the required dictionary key value.
-        #-change the value to list
-        #-decrypt the list
-        #-print it
-
+        #100% complete..!
     def store(self,name):  #test it #stores password  #ok..!
         #storing format must be like this:
+            #comapny: cname
+            #id: Eddie2111
+            #Password: abcd1234
             #x={'cname':('Eddie2111','[a,1],[b,2],[c,3],[d,4]')}
         self.name=name
-        with open ("h:/Nikolai/db.txt", "a") as textico:
+        with open ("db.txt", "a") as textico:
             print(self.name, file=textico)
         return 'stored..!'
     
@@ -99,7 +95,7 @@ class db:
         #instance incomplete[95% done] #shows email,id,pass
         #main retrieve section file..!#
         
-        with open ('task2.txt','r') as textfile:  #replace the location by the main db.txt file to complete 100%
+        with open ('db.txt','r') as textfile:  #replace the location by the main db.txt file to complete 100%
             gstring=textfile.read() #read complete
         hexa=gstring.splitlines()
      
@@ -122,10 +118,6 @@ class db:
         for i in range(b_x[4]+1,b_x[5]):
             c+=gotit[i]
             
-        #Output of email,id,pass
-        #print(a)
-        #print(b)
-        #print(c)
         print( 'Company: {}\nID: {}'.format(a,b))
         temp1,temp2=[],[]
         for i in range(len(c)):#
@@ -158,7 +150,7 @@ class db:
                 error=0
             else:
                 unreal_g+=real_g[i]
-        return unreal_g
+        return 'Password: {}'.format(unreal_g)
 
     def selfsec(self,pass_x): #protects the whole program
         import hashlib
