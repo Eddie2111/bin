@@ -89,3 +89,53 @@ def bubble_sort(a):
     print(a)
     
 bubble_sort(a)
+
+def fibo(n):
+    n = int(n)
+    if n==0:
+        return 0
+    if n==1:
+        return 1 
+    else:
+        return (fibo(n-1)+fibo(n-2))
+    
+for i in range(0,8):
+    print(fibo(i),end=" ")
+    
+    
+def grid_walk(m,n):
+  if m<0 or n<0:
+    return 0
+  if m==1 or n==1:
+      return 1 
+  else: 
+      return grid_walk(m,n-1)+grid_walk(m-1,n)
+
+a,b=4,4
+print("\n",grid_walk(a,b))
+list1 = [4,6,1,3,9]
+
+def selectionSort(a): #not recursive
+    indexingLength = range(0,len(a)-1)
+    for i in indexingLength:
+        min_value = i
+        
+        for j in range(i+1,len(a)):
+            if a[j]<a[min_value]:
+                min_value=j
+        if min_value != i:
+            a[min_value],a[i]=a[i],a[min_value]
+            
+    return a
+
+print(selectionSort(list1))
+
+def recus1(n):  #for memoization using lists
+    if n==0:
+        return 0
+    if n==1 or n==2:
+        return 1
+    else:
+        return recus1(n-1)+recus1(n-2)
+print(recus1(7))
+
