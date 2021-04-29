@@ -22,7 +22,6 @@ class stack:  #stack
     def peek(self):
         return self.database[len(self.database)-1]
         
-
 def selectionSort(array, size):
    
     for step in range(size):
