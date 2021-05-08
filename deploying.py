@@ -72,6 +72,7 @@ class db:
                 real+=text3[i]
                 real+=text4[i]
             except:
+                pass
                 error=0
         real_g=''
         for i in range(len(real)):
