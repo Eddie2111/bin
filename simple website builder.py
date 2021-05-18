@@ -1,6 +1,6 @@
 import time
 def store(x):
-    with open ("c:/Users/Acer/Desktop/New folder/firstSite.html", "a") as textico:
+    with open ("firstSite.html", "a") as textico:
         print(x, file=textico)
     time.sleep((2))
     print("\nfile created\n")
