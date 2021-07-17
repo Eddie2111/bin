@@ -30,7 +30,7 @@ class expertise:
             else:
                 print(i)
         return ''
-        
+    
     def fibonacci_series(self,start,numberLimit):
         self.start=start
         self.numberLimit=numberLimit
