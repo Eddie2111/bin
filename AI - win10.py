@@ -1,5 +1,6 @@
 from functools import lru_cache
 @lru_cache(maxsize = 1000)
+
 class expertise:
     def __init__(self,value=0):
         self.value=value
@@ -122,7 +123,7 @@ def previousDay():
 
 def showFace():
     import cv2
-    face_cascade = cv2.CascadeClassifier('h:/Nikolai/haarcascade_frontalface_default.xml')
+    face_cascade = cv2.CascadeClassifier('i:/Nikolai/haarcascade_frontalface_default.xml')
     cap = cv2.VideoCapture(0)
     while True:
         _, img = cap.read()
@@ -138,6 +139,10 @@ def showFace():
             cap.release()
             cv2.destroyAllWindows()
     return 'Done'
+
+def start(x):
+    import os
+    os.system('')
 
 def canDo():
     a=(23*'='+'\n')
@@ -165,23 +170,21 @@ def greet():
     return ''  
 
 def joke():
-    import random
+    import random,time
+    database = [ "Why don’t scientists trust atoms?\nBecause they make up everything.",
+                "SO I saw a bus full of old people going somewhere.\nDo you know what it was?\nRight, graves on wheels. :v",
+                'What do muslims do when they see their wife having affair?\n Nothing, they marry another 3 women.',
+                'What did the shark say when he ate the clownfish?\nThis tastes a little funny.']
     n=random.randint(1,4)
     if (n==1):
-        print("Why don’t scientists trust atoms?")
-        print("Because they make up everything.")
+        print(database[0])
     if (n==2):
-        print("SO I saw a bus full of old people going somewhere.")
-        print('Do you what it was?')
-        print('Right, graves on wheels. :v ')
+        print(database[1])
     if (n==3):
-        print('What do muslims do when they see their wife having affair?')
-        print('Nothing, they marry another 3 women.')
+        print(database[2])
     if (n==4):
-        print("What did the shark say when he ate the clownfish?")
-        print("This tastes a little funny.")
+        print(database[3])
     return 24*'='
-
 
 def calculate(a,b,c):
     if c=="+":
@@ -192,7 +195,31 @@ def calculate(a,b,c):
         x=a*b
     if c=="/":
         x=a/b
-    return x      
+    return x    
+
+def binary(x,base):
+    while x>0:
+        a=x//base
+        print(a,'and',x-a*base)
+        return binary(a,base)
+
+#binary(x,base)
+
+def conversion(num,base):
+    baseNum = ""
+    if base<36:
+        while num>0:
+            g = int(num%base)
+            if g<10:
+                baseNum += str(g)
+            else:
+                baseNum += chr(ord('A')+g-10)  
+            num //= base
+        print(' ')
+        return baseNum[::-1]
+    else:
+        print(' ')
+        return 'Cannot convert, that base does not exist.'
 
 def directMaths(x):
     x=str(x)
@@ -203,22 +230,26 @@ def directMaths(x):
     print(23*'=')
     return g
 
+def class_mat():
+    try:
+        with open ("i:/Nikolai/class materials.txt", "r") as textico:
+            machine = textico.read()
+            print (machine)
+    except:
+        print('please fix the file address')
 
 def dictorize(x):
-    list1=[]
-    ss=""
+    list1,ss=[],""
     for i in range (0,len(action)):
         if (action[i]=='"'):
             list1.append(i)
-    catch1=list1[0]
-    catch2=list1[1]      
+    catch1,catch2=list1[0],list1[1]      
     for i in range (catch1+1,catch2):
         ss+=action[i]  
     from PyDictionary import PyDictionary
     dictionary=PyDictionary()
-    print ("Synonym: ",dictionary.synonym(ss))
-    print ("Antonym: ",dictionary.antonym(ss))
-    return ' '
+    print ("Synonym: ",dictionary.synonym(ss),"\n"+"Antonym: ",dictionary.antonym(ss))
+    
 
 def thanks(a):
     if 'thank' in a:
@@ -286,7 +317,7 @@ def surfaceCalculation(a,b,c):
         rectangleArea=(a+b)*2
         return rectangleArea 
 def wordcounter(x): #done, not implanted, needs to be tested.
-    with open ("H:/nikolai/text.text","r") as textico:
+    with open ("i:/nikolai/text.text","r") as textico:
         machine=textico.read()
         machine=machine.split()
         return len(machine)
@@ -300,14 +331,13 @@ print('===================================')
 print('===================================')
 print("Ask away your questions: ")
 
-exitValue=0
-dieth=0
+exitValue,dieth=int(0),int(0)
 while True:
 
     try:
         main_input=str(input("-->"))
         action=main_input.lower()
-        if exitValue==4 or dieth==2:
+        if exitValue==int(4) or dieth==int(2):
             exit()
         if 'yuri' in action:
             print('Sir..?')
@@ -540,33 +570,11 @@ while True:
                         break
                 except ValueError:
                     print('Only integer option is taken.')
-        elif "facebook" in action:
-            try:
-                import webbrowser
-                webbrowser.get('C:\Program Files\Mozilla Firefox\firefox').open_new_tab('http://www.facebook.com')
-            except:
-                print('Failed to run.')
-        elif "google" in action:
-            try:
-                import webbrowser
-                webbrowser.get('C:\Program Files\Mozilla Firefox\firefox').open_new_tab('http://www.google.com')
-            except:
-                print('Failed to run.')
-        elif action=="what can you do?":
-            introduction()
-        elif "youtube" in action:
-            try:
-                import webbrowser
-                webbrowser.get('C:\Program Files\Mozilla Firefox\firefox').open_new_tab('http://www.youtube.com')
-            except:
-                print('Failed to run.')
-        elif "gmail" in action:
-            try:
-                import webbrowser
-                webbrowser.get('C:\Program Files\Mozilla Firefox\firefox').open_new_tab('http://www.gmail.com')
-            except:
-                print('Failed to run.')
-                
+                    
+        elif "class" in action:
+            class_mat()
+        elif "conver" in action:
+            print(conversion(int(input('Number=>')),int(input('Base=>'))))
         elif(action=="statistics" or action=="stat" ):
             print("I can perform averages, summation of total given data.")
             loop=int(input("How many inputs? ="))
@@ -650,7 +658,7 @@ while True:
                         break
                     else:
                         try:
-                            with open ("h:/Nikolai/ToDoList.txt", "a") as textico:
+                            with open ("i:/nikolai/ToDoList.txt", "a") as textico:
                                 print(textsToInput, file=textico)
                         except:
                             print('Resource file not found, fix the path.')
@@ -673,13 +681,16 @@ while True:
                         if textsToInput in ["done",'Done','DONE','ok',"OK"]:
                             break
                         else:
-                            with open ("h:/Nikolai/resource.txt", "a") as textico:
+                            with open ("I:/nikolai/resource.txt", "a") as textico:
                                 print(textsToInput, file=textico)
                     except:
                         print('Please fix the file address for resource.txt')
                 print(23*'=')
                 print("Questions taken, Sir..!")
                 print(23*'=')
+        elif action =="abort":
+            import os
+            os.system("shutdown /a")
         elif action in ['day','what day is it?','whats the day?','today']:
             print(dayNow())
         elif action=="how to do anything?" or action=="i'm stuck":
@@ -689,16 +700,16 @@ while True:
         elif action=="yeah":
             print('Thank you... ;) ') 
         elif action=="show me the notes" or action=="show notes" or action=="what should I do?" or action=='suggest me to do something' or action=="what should I do next?":
-            with open("h:/Nikolai/ToDoList.txt") as printer:
+            with open("i:/Nikolai/ToDoList.txt") as printer:
                 machine=printer.read()
             print(machine)
         elif "show" in action:
             if 'questions' in action:
-                with open("h:/Nikolai/resource.txt") as printer:
+                with open("i:/Nikolai/resource.txt") as printer:
                     machine=printer.read()
                 print(machine)
             if "works to do" in action:
-                with open("h:/Nikolai/ToDoList.txt") as printer:
+                with open("i:/Nikolai/ToDoList.txt") as printer:
                     machine=printer.read()
                 print(machine)
         elif 'restart' in action:
@@ -784,7 +795,7 @@ while True:
         else:
             print("Umm, ,some texts, don't know how to answer that though, but I will try next time.")
             try:
-                with open ("h:/Nikolai/resource.txt", "a") as inp:
+                with open ("i:/Nikolai/resource.txt", "a") as inp:
                     print(action, file=inp)
             except:
                 speak('Please fix the resource file path before proceeding')
@@ -793,8 +804,9 @@ while True:
                 print('FIX THE RESOURCE FILE PATH IMMEDIATELY..!')
                 print(23*'=')
                 print(23*'=')
-        print("Up for some chitchat or maths? Your call: ")
+        print("\nUp for some chitchat or maths? Your call: ")
 
     except ValueError:
         print("That seems like an unrecognized string value.  I mean solid numbers when I say enter value, choice or data.")
         print("But, I'm under development, will soon be able to answer.")
+        
