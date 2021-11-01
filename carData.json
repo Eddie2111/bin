@@ -9,9 +9,9 @@
       {
         "type": "Feature",
         "properties": {
-          "CARID": 960,
-          "DRIVERID": 28014,
-          "NAME": "Bearbrook Skateboard Park",
+          "CAR_ID": 960,
+          "DRIVER_ID": 28014,
+          "NAME": "Toyota Supra RZ 98",
           "NAME_FR": "Planchodrome Bearbrook",
           "ADDRESS": "8720 Russell Road",
           "ADDRESS_FR": "8720, chemin Russell",
@@ -38,9 +38,9 @@
       {
         "type": "Feature",
         "properties": {
-          "CARID": 1219,
-          "DRIVERID": 28001,
-          "NAME": "Bob MacQuarrie Skateboard Park (SK8 Extreme Park)",
+          "CAR_ID": 1219,
+          "DRIVER_ID": 28001,
+          "NAME": "Toyota Tourer V Chaser",
           "NAME_FR": "Planchodrome Bob-MacQuarrie (Parc SK8 Extreme)",
           "ADDRESS": "1490 Youville Drive",
           "ADDRESS_FR": "1490, promenade Youville",
