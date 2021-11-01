@@ -28,8 +28,7 @@
           "DESCRIPTIO": "Flat asphalt surface, 5 components",
           "DESCRIPT_1": "Surface d'asphalte plane, 5 modules",
           "PICTURE_LI": null,
-          "PICTURE_DE": null,
-          "PICTURE__1": null
+          "PICTURE_DE": null
         },
         "geometry": {
           "type": "Point",
@@ -58,8 +57,7 @@
           "DESCRIPTIO": "Flat asphalt surface, 10 components, City run learn to skateboard programs, City run skateboard camps in summer",
           "DESCRIPT_1": "Surface d'asphalte plane, 10 modules, programmes et camps de planche à roulettes en été géré par la Ville",
           "PICTURE_LI": null,
-          "PICTURE_DE": null,
-          "PICTURE__1": null
+          "PICTURE_DE": null
         },
         "geometry": {
           "type": "Point",
