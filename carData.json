@@ -9,8 +9,8 @@
       {
         "type": "Feature",
         "properties": {
-          "PARK_ID": 960,
-          "FACILITYID": 28014,
+          "CARID": 960,
+          "DRIVERID": 28014,
           "NAME": "Bearbrook Skateboard Park",
           "NAME_FR": "Planchodrome Bearbrook",
           "ADDRESS": "8720 Russell Road",
@@ -38,8 +38,8 @@
       {
         "type": "Feature",
         "properties": {
-          "PARK_ID": 1219,
-          "FACILITYID": 28001,
+          "CARID": 1219,
+          "DRIVERID": 28001,
           "NAME": "Bob MacQuarrie Skateboard Park (SK8 Extreme Park)",
           "NAME_FR": "Planchodrome Bob-MacQuarrie (Parc SK8 Extreme)",
           "ADDRESS": "1490 Youville Drive",
