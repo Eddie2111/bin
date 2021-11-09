@@ -1,0 +1,17 @@
+center button{
+	text-align: center;
+	padding: 0px 30px;
+	font-size: 30px;
+	cursor: pointer;
+	outline: none;
+	color: #fff;
+	background-color: #00e4fd;
+	border:none;
+	border-radius: 15px;
+	box-shadow: 0 2px #999;
+	transition: 0.2s ease-in;
+}
+button:hover {background-color: #47ed3e}
+button:active {
+	transform: translateY(4px);
+  }
