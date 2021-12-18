@@ -1,38 +1,51 @@
-import "./styles.css";
 import {React, useState} from 'react';
-function ASpp(x){
-  if (x>15){
-    setConstrain(constrain+15)
-  }
-  return(
-    <button>hello world</button>
+import "./styles.css";
+
+function Score(x){
+  const [highest, setHighest] = useState(0);
+  const [lowest, setLowest] = useState(0);
+    if (x>highest){
+      setHighest(x);
+    }
+    if (x<lowest){
+      setLowest(x);
+    }
+  return (
+    <>
+    <div className ='score-card'>
+      <p> highest point = {highest}</p>
+      <p> lowest point = {lowest}</p>
+      </div>
+    </>
   )
 }
-export default function App() {
-  const [variable,setVariable] = useState(0);
-  const [constrain,setConstrain] = useState(1);
-  const divStyle = {
-    color:'red',
-    display:'flex',
-    justifiedContent:'center',
-    margin: 'auto',
-    width: '0%',
-    border: '3px',
-    padding: '-50px',
-    wordSpacing:'30px'
-  }  
 
+function Main(){
+  const [variable , setVariable] = useState(0);
+  const [constrain, setConstrain] = useState(1);
+  const style = {
+    fontFamily: 'sans-serif',
+    textAlign: 'center'
+    }
+  
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-      <div style= {divStyle}>
-      <button onClick={()=>setVariable(variable+constrain)} >+</button>
-      <div>{variable}</div>
-      <button onClick={()=>setVariable(variable-constrain)} >-</button>
-      </div>
-      <ASpp/>
-
+    <>
+    <div style = {style}>
+    <h1>Point Clicker</h1>
+    <p> Current Constrain = {constrain}</p>
+    <button onClick = {()=> setVariable(variable+constrain)}> + </button>
+    <br/>
+    <h5>{variable}</h5>
+    
+    <button onClick = {()=> setVariable(variable-constrain)}> - </button>
+    <h1>{ Score(variable) }</h1>
+    <button onClick = {()=> 
+      setConstrain(constrain+1)}>Increase Constrain</button>
+    
+    <button onClick = {()=> setConstrain(constrain-1)}>Decrease Constrain</button>
     </div>
-  );
+    
+    </>
+  )
 }
+export default Main;
