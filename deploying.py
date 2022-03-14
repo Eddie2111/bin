@@ -1,3 +1,4 @@
+import hashlib
 class db:
     def __init__(self,name='default'):
         self.name=name
@@ -11,34 +12,34 @@ class db:
         return 'stored..!'
     
     def encrypt(self,pas):  #done#encrypts password  #ok..!
-        self.pas=pas
-        arr1,arr2,arr3,arr4=[],[],[],[]
+        self.pas            = pas
+        arr1,arr2,arr3,arr4 = [],[],[],[]
         keys=[]
         x=0
         if len(self.pas)%2==0:
             try:
                 while len(self.pas)-1>x:
                     arr1.append(self.pas[x])
-                    x+=1
+                    x   += 1
                     arr2.append(self.pas[x])
-                    x+=1
+                    x   += 1
                     arr3.append(self.pas[x])
-                    x+=1
+                    x   += 1
                     arr4.append(self.pas[x])
-                    x+=1
+                    x   += 1
             except:
                 g=0
         else:
             try:
                 while len(self.pas)-1>x:
                     arr1.append(self.pas[x])
-                    x+=1
+                    x   += 1
                     arr2.append(self.pas[x])
-                    x+=1
+                    x   += 1
                     arr3.append(self.pas[x])
-                    x+=1
+                    x   += 1
                     arr4.append(self.pas[x])
-                    x+=1
+                    x   += 1
                 arr1.append(self.pas[len(self.pas)-1])
             except:
                 g=0
@@ -53,44 +54,45 @@ class db:
         return unreal_g
     
     def decrypt(self,g):  #takes a string as the four arrays and returns the password.
-        self.g=g
-        temp1,temp2=[],[]
+        self.g      = g
+        temp1,temp2 = [],[]
         for i in range(len(g)):
             if g[i]=='[':
                 temp1.append(i) 
             elif g[i]==']':
                 temp2.append(i)
-        text1=g[temp1[0]+1:temp2[0]]
-        text2=g[temp1[1]+1:temp2[1]]
-        text3=g[temp1[2]+1:temp2[2]]
-        text4=g[temp1[3]+1:temp2[3]]
-        real=''
+        text1       = g[temp1[0]+1:temp2[0]]
+        text2       = g[temp1[1]+1:temp2[1]]
+        text3       = g[temp1[2]+1:temp2[2]]
+        text4       = g[temp1[3]+1:temp2[3]]
+        real        = ''
         for i in range(8):
             try:
-                real+=text1[i]
-                real+=text2[i]
-                real+=text3[i]
-                real+=text4[i]
+                real    += text1[i]
+                real    += text2[i]
+                real    += text3[i]
+                real    += text4[i]
             except:
                 pass
                 error=0
         real_g=''
         for i in range(len(real)):
             if real[i]==',':
-                rem=1
+                rem     = 1
             else:
-                real_g+=real[i]
+                real_g  += real[i]
         unreal_g=''
         for i in range(len(real_g)):
             if real_g[i]==' ':
-                error=0
+                error   = 0
             else:
-                unreal_g+=real_g[i]
+                unreal_g+= real_g[i]
         return unreal_g
 
     def s_retrieve(self,cname_main):
         self.cname_main=cname_main
-        #instance incomplete[95% done] #shows email,id,pass
+        
+        #shows email,id,pass
         #main retrieve section file..!#
         
         with open ('db.txt','r') as textfile:  #replace the location by the main db.txt file to complete 100%
@@ -101,65 +103,64 @@ class db:
         a=cname_main  ###main input here...!!
         for i in range(0,len(hexa)):
             if a in hexa[i]:
-                gotit=hexa[i]
+                gotit   = hexa[i]
             else:
                 None 
-        b_x=[]
+        b_x     = []
         for i in range(len(gotit)):
             if gotit[i]=="'":
                 b_x.append(i)
-        a,b,c='','',''
+        a,b,c   = '','',''
         for i in range(b_x[0]+1,b_x[1]):
             a+=gotit[i]
         for i in range(b_x[2]+1,b_x[3]):
-            b+=gotit[i]
+            b   += gotit[i]
         for i in range(b_x[4]+1,b_x[5]):
-            c+=gotit[i]
+            c   += gotit[i]
         print(24*'=',"\n")
         print( 'Company: {}\nID: {}'.format(a,b))
-        temp1,temp2=[],[]
+        temp1,temp2 = [],[]
         for i in range(len(c)):#
             if c[i]=='[':#
                 temp1.append(i) 
             elif c[i]==']':#
                 temp2.append(i)
-        text1=c[temp1[0]+1:temp2[0]]####
-        text2=c[temp1[1]+1:temp2[1]]
-        text3=c[temp1[2]+1:temp2[2]]
-        text4=c[temp1[3]+1:temp2[3]]
-        real=''
+        text1           = c[temp1[0]+1:temp2[0]]####
+        text2           = c[temp1[1]+1:temp2[1]]
+        text3           = c[temp1[2]+1:temp2[2]]
+        text4           = c[temp1[3]+1:temp2[3]]
+        real            = ''
         for i in range(8):
             try:
-                real+=text1[i]
-                real+=text2[i]
-                real+=text3[i]
-                real+=text4[i]
+                real    +=text1[i]
+                real    +=text2[i]
+                real    +=text3[i]
+                real    +=text4[i]
             except:
                 error=0
         real_g=''
         for i in range(len(real)):
             if real[i]==',':
-                rem=1
+                rem     = 1
             else:
-                real_g+=real[i]
+                real_g  += real[i]
         unreal_g=''
         for i in range(len(real_g)):
             if real_g[i]==' ':
-                error=0
+                error   = 0
             else:
-                unreal_g+=real_g[i]
+                unreal_g+= real_g[i]
         return 'Password: {}'.format(unreal_g)
 
     def selfsec(self,pass_x): #protects the whole program
-        import hashlib
-        self.pass_x=pass_x
-        self.pass_x=hashlib.md5(self.pass_x.encode())
-        g_hash=self.pass_x.hexdigest()
+        self.pass_x = pass_x
+        self.pass_x = hashlib.md5(self.pass_x.encode())
+        g_hash      = self.pass_x.hexdigest()
         if g_hash=='55295a43516e2fb71673ef48d38b690c':
             return 'welcome'
         else:
             return 'wrong password'
-a=db()
+a   = db()
 def storing_style(x,y,z):  ##not implemented ##hardcode section is not changed
     return '\n {} \n'.format(a.store({x:(str(y),str(a.encrypt(z)))}))
 
@@ -168,13 +169,13 @@ print('Welcome to HexWall Password Storing System.')
 while True:
 
     print('Chose an option:')
-    input_x=input('[1]Store\n[2]Retrieve\n[3]Stored Key List\n[4]Exit Program\n=>')
+    input_x = input('[1]Store\n[2]Retrieve\n[3]Stored Key List\n[4]Exit Program\n=>')
     try:
         if int(input_x)==1:
             print('Storing System Initialized')
-            x=str(input('company name:'))
-            y=str(input('Id name: '))
-            z=str(input('Password: '))
+            x   = str(input('company name:'))
+            y   = str(input('Id name: '))
+            z   = str(input('Password: '))
             print('\n',a.store({x:(str(y),str(a.encrypt(z)))}),'\n')
         if int(input_x)==2:
             for i in range(0,3):
