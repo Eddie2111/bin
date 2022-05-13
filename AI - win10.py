@@ -1,6 +1,7 @@
 from functools import lru_cache
 @lru_cache(maxsize = 1000)
 
+
 class expertise:
     def __init__(self,value=0):
         self.value=value
