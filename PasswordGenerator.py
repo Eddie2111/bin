@@ -1,4 +1,5 @@
 import random
+
 class mongodb:
     def __init__(self,text1,text2):
         self.text1=text1
