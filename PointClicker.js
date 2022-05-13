@@ -27,7 +27,6 @@ function Main(){
     fontFamily: 'sans-serif',
     textAlign: 'center'
     }
-  
   return (
     <>
     <div style = {style}>
