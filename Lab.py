@@ -3,6 +3,7 @@ import time
 #from pocketsphinx import LiveSpeech, get_model_path ##work on sphinx
 import speech_recognition as sr
 
+
 r=sr.Recognizer()
 while True:
     with sr.Microphone() as source:
@@ -25,3 +26,5 @@ while True:
             time.sleep(2)
         except:
             print('Unable to recognize.')
+
+            
