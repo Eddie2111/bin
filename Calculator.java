@@ -5,7 +5,6 @@
  */
 package com.edwardgit.javacalculator;
 
-
 /**
  *
  * @author Zephyr
