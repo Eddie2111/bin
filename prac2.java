@@ -1,6 +1,7 @@
 import java.util.*;
 class prac2 {
 
+  
   // method with no parameter
   public int throwcoin() {
     Random rnd=new Random();
