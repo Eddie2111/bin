@@ -6,6 +6,7 @@ class db:
     def store(self,name):  #test it #stores password  #ok..!
         #storing format must be like this:
             #x={'cname':('Eddie2111','[a,1],[b,2],[c,3],[d,4]')}
+            
         self.name=name
         with open ("db.txt", "a") as textico:
             print(self.name, file=textico)
