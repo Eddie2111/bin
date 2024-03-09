@@ -1,3 +1,14 @@
+// setting default branch using this,
+git config --global init.defaultBranch main
+// edit all configs
+git config --global --edit
+// set up a proxy for git
+git config --global http.proxy proxy-url
+// git help
+git config -h
+
+
+
 import {React, useState} from 'react';
 import "./styles.css";
 
